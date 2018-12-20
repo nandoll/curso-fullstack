@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <h5>Estas son las peligras registradas</h5>
+    <ng-container *ngFor="let movie of movies">
+      <div class="row">
+        <div class="col">{{movie.title}}</div>
+        <div class="col">{{movie.director}}</div>
+        <div class="col">{{movie.poster}}</div>
+        <div class="col">{{movie.year}}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

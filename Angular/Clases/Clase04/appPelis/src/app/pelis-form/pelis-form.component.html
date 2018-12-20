@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col">
+    <h5>Ingresa tus peliculas favoritas</h5>
+    <input type="text" placeholder="Escribe el titulo" #title>
+    <input type="text" placeholder="Escribe el nombre director" #director>
+    <input type="file" #poster>
+    <input type="text" placeholder="Fecha de lanzamiento" #year>
+    <button class="btn" (click)="addMovie(title.value, director.value,  year.value)">Agregar</button>
+  </div>
+</div>
