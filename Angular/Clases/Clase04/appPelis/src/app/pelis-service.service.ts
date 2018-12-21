@@ -7,11 +7,14 @@ import { IPelis } from './pelis.interface';
 export class PelisServiceService {
 
   constructor() { }
+  // Importante asignarele valor a movies
+  private movies: Array<IPelis> = []
 
-  private movies: Array<IPelis>
+  addMovie(pelis: IPelis) {
+    this.movies.push(pelis)
+    console.log(pelis)
+    console.log(this.movies)
 
-  addMovie(movie: IPelis) {
-    this.movies.push(movie)
   }
 
   showMovies() {

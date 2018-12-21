@@ -9,11 +9,12 @@ import { PelisServiceService } from '../pelis-service.service';
 })
 export class PelisListComponent implements OnInit {
 
-  movie: Array<IPelis> = []
+  pelis: Array<IPelis> = []
+
   constructor(private movies: PelisServiceService) { }
 
   ngOnInit() {
-    this.movie = this.movies.showMovies()
+    this.pelis = this.movies.showMovies()
   }
 
 }

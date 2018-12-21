@@ -11,10 +11,10 @@ export class PelisFormComponent implements OnInit {
 
   constructor(private movies: PelisServiceService) { }
 
-  movie: Array<IPelis> = []
 
-  addMovie(movie) {
-    this.movies.addMovie(movie)
+  addMovie(title: string, director: string, year: number) {
+    const pelis: IPelis = { title, director, poster: "poster", year, show: false }
+    this.movies.addMovie(pelis)
   }
 
   ngOnInit() {
