@@ -1,10 +1,24 @@
 <div class="row">
   <div class="col">
     <h5>Ingresa tus peliculas favoritas</h5>
-    <input type="text" placeholder="Escribe el titulo" #title>
-    <input type="text" placeholder="Escribe el nombre director" #director>
-    <input type="file" #poster>
-    <input type="text" placeholder="Fecha de lanzamiento" #year>
-    <button class="btn" (click)="addMovie(title.value, director.value,  year.value)">Agregar</button>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Escribe el titulo" #title>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Escribe el nombre director" #director>
+    </div>
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="validatedCustomFile" value="Seleccionar" #poster>
+        <label class="custom-file-label" for="validatedCustomFile">Poster...</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Fecha de lanzamiento" #year>
+    </div>
+
+    <button class="btn btn-primary" (click)="addMovie(title.value, director.value,  year.value)">Agregar</button>
   </div>
 </div>
