@@ -1,0 +1,48 @@
+
+
+.pelis-container{
+    height: 100vh;
+    background-color: $bg-main;
+}
+
+.pelis-card{
+    display:grid;
+    border: 1px solid red;
+    border: 1px solid $third;
+    border-radius: 16px;
+
+    .title{
+        // Distribución del espacio del título
+        span{            
+            color: $primary;
+            font-weight: 500;
+        }
+    }
+
+    .poster{
+
+        // Distribución del espacio de la imptypagen
+
+    }
+
+    .poster{
+
+        // Distribución del espacio del footer
+
+    }
+}
+
+// Estilos generales
+.up{
+    text-transform: uppercase;
+}
+.center{
+    text-align: center;
+}
+.bbot{
+    border-bottom: 1px solid $third;
+}
+
+.alpha{
+    color: $primary;
+}

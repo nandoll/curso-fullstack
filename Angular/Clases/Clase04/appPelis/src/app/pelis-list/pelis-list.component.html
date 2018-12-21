@@ -1,35 +1,31 @@
 <!-- Los cards -->
-<div class="pelis-container">
-
-  <div class="pelis-card" *ngIf="pelis.length; else noHayPelas">
-    <div class="row">
-      <!-- La información del card -->
-      <ng-container *ngFor="let movie of pelis">
-        <div class="col-4">
-          <!-- title card -->
-          <div class="title">
-            <span class="up">{{movie.title}}</span>
-          </div>
-          <!-- image card -->
-          <div class="poster">
-            <img [src]="movie.poster" alt="{{movie.title}}">
-          </div>
-
-          <!-- footer info card -->
-          <div class="foot">
-            <span>{{movie.director}}</span>
-            <span>{{movie.year}}</span>
-          </div>
+<div class="row" *ngIf="pelis.length; else noHayPelas">
+  <!-- La información del card -->
+  <ng-container *ngFor="let movie of pelis">
+    <div class="col-3">
+      <div class="pelis-card">
+        <!-- title card -->
+        <div class="title center bbot">
+          <span class="up ">{{movie.title}}</span>
         </div>
-      </ng-container>
-
-      <!-- No hay nada para mostrar -->
-      <ng-template #noHayPelas>
-        <div class="col">
-          <p>Aun no hay pelas</p>
+        <!-- image card -->
+        <div class="poster bbot">
+          <img [src]="movie.poster" alt="{{movie.title}}">
         </div>
-      </ng-template>
+        <!-- footer info card -->
+        <div class="foot">
+          <span>{{movie.director}}</span>
+          <span>{{movie.year}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<!-- No hay nada para mostrar -->
+<ng-template #noHayPelas>
+  <div class="row">
+    <div class="col">
+      <h5 class="center"><span class="alpha">Aun no hay pelas</span></h5>
     </div>
   </div>
-
-</div>
+</ng-template>
