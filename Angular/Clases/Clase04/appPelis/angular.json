@@ -56,8 +56,8 @@
                   "maximumError": "5mb"
                 }
               ]
-            }
-          }
+            } 
+          } 
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
