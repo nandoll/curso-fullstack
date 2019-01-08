@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Carrera</title>
+</head>
+<body>
+	<script>
+	let ambA, ambB, ambC
+	ambA = new Promise(
+		(res, rej) => {
+			setTimeout(()=>{
+				res('Amb1')
+			}, 2000)
+		}
+	)
+	ambB = new Promise(
+		(res, rej) => {
+			setTimeout(()=>{
+				res('Amb2')
+			},7000)
+		}
+	)
+	ambC = new Promise(
+		(res, rej) => {
+			setTimeout(()=>{
+				res('Amb3')
+			}, 4000)
+		}
+	)
+
+	Promise.race([ambA, ambB, ambC])
+	.then((data)=>console.log(data))
+	.catch((err)=>console.log(err))
+
+	</script>
+</body>
+</html>

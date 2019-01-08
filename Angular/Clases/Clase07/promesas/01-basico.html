@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<script>
+		const promesa = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve(["sergio", "erika", "carmen", "beatriz", "paolo"])
+				/* reject({
+					status: 500,
+					message: "Usuario repetido"
+				}) */
+			}, 4000)
+		})
+
+		/* promesa.then(
+			(lista) => { console.log(lista) },
+			(error) => { console.log(error) }
+		) */
+
+		/* 	promesa.then(
+				(lista) => { console.log(lista) }
+			)
+	
+			promesa.catch(
+				(error) => { console.log(error) }
+			) */
+
+
+		promesa
+			.then(
+				(lista) => {
+					console.log(lista)
+
+					return new Promise((resolve, reject) => {
+						setTimeout(() => {
+							resolve("Comida")
+						}, 8000)
+					})
+				}
+			)
+			.then((plato) => console.log(plato))
+			.catch(
+				(error) => { console.log(error) }
+			)
+
+
+
+	</script>
+
+</body>
+
+</html>
