@@ -1,3 +1,41 @@
-<p>
-  reactive works!
-</p>
+<div class="MyFormWrap">
+		<div class="container-full">
+				<div class="container black">
+					<div class="row">
+							<div class="col">
+									<div class="row">
+										<div class="col"><button class="btn btn-success" (click)="cargarDatos()">Cargar Datos</button></div>
+										<div class="col"><button class="btn btn-warning" (click)="cargarDatosParcialConPatch()">Cargar Datos Parcial</button></div>
+									</div>
+								</div>
+					</div>
+						<div class="row justify-content-md-center">
+							
+							<form #f="ngForm" [formGroup]="grupo" (ngSubmit)="grabar()">
+								<div class="form-group" >
+									<input type="text" placeholder="Nombre completo" name="name" formControlName="name">
+									<span *ngIf="grupo.get('name').hasError('required') && grupo.get('name').touched">Debe poner su nombre</span>
+									<!-- como obtengo el nombre de los controles para hacer las validales con el get -->
+									<!-- el metodo hasError haces las veces de valor.json.error -->
+								</div>
+								
+								<div class="form-group">
+									<input type="text" placeholder="Email" name="email" formControlName="email">
+									<span *ngIf="grupo.get('email').hasError('required') && grupo.get('email').touched">El correo es requerido</span>
+									<span *ngIf="grupo.get('email').hasError('email') ">El formato del correo es incorrecto</span>
+								</div>
+								
+								<div class="form-group">
+									<input type="password" placeholder="Password" name="pass" minlength="4" formControlName="pass">
+								</div>
+													
+								<div class="form-group">
+									<button class="btn btn-secondary btn-block" [disabled]="!grupo.valid">Guardar</button>
+									<!-- Para que sea valido cada formCOntrolName debe de ser valido -->
+
+								</div>
+							</form>
+						</div>
+					</div>
+		</div>
+	</div>
