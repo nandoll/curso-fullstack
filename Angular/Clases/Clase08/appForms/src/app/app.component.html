@@ -1,28 +1,54 @@
 <div class="MyFormWrap">
-
-
 	<div class="container-full">
 			<div class="container black">
+				<div class="row">
+						<div class="col">
+								<div class="row">
+									<div class="col"><button class="btn btn-success" (click)="cargarDatos()">Cargar Datos</button></div>
+									<div class="col"><button class="btn btn-warning" (click)="cargarDatosParcialConPatch()">Cargar Datos Parcial</button></div>
+								</div>
+							</div>
+				</div>
 					<div class="row justify-content-md-center">
-						<form #f="ngForm">
+						
+						<form #f="ngForm" (ngSubmit)="grabar()">
 							<!-- // Se toma como referencia el parent en este caso es el form 
 							// Luego se agrega la referencia de tipo ngForm 
 							// Esto hara que se "cojan" todos los elemenos dentro de el -->
 							<div class="form-group" >
-								<input type="text" placeholder="Nombre completo" name="name" ngModel required>
+								<input type="text" placeholder="Nombre completo" name="name" ngModel required #name="ngModel">
 								<!-- Ademas se debe de agregar ngModel para que pueda ser reconocido como hijo del form -->
+
 							</div>
 							<div class="form-group">
-								<input type="text" placeholder="Email" name="email" ngModel required email>
+								<span *ngIf="name.invalid && name.touched">Debe ingresar el nombre de usuairo</span>
 							</div>
 							<div class="form-group">
-								<input type="password" placeholder="Password" name="pass" ngModel>
+								<input type="text" placeholder="Email" name="email" ngModel required email #email="ngModel">
+								<!-- Para validar el input email ... y neviar un mensaje de error agregaremos una variable local -->
+								<!-- Haciendo referencia a ngModel -->
+								
 							</div>
 							<div class="form-group">
-								<button 
+								<span *ngIf="!email.valid && email.touched && email.errors.required">El correo es requerido</span>
+								<span *ngIf="!email.valid && email.touched && email.errors.email">El formato del correo es incorrecto</span>
+							</div>
+							<div class="form-group">
+								<input type="password" placeholder="Password" name="pass" minlength="4" ngModel #pass="ngModel">
+							</div>
+							<div class="form-group">
+								<span *ngIf="!pass.valid && pass.touched && pass.errors.minlength "></span>
+							</div>						
+							<div class="form-group">
+								<!-- <button 
 								type="button" 
-								class="btn btn-primary btn-block"
-								(click)="grabar(f)">Guardar</button>
+								class="btn btn-secondary btn-block "
+								(click)="grabar()" [disabled]="!f.valid">Guardar</button> -->
+								<!-- Si el formulaio es false quiere decir que no es valido -->
+								<!-- Si el formulario es invalido quiere decir que no se debe activar -->
+								<!-- Esta es otra forma de validar el formulario -->
+<!-- Ahora vamos a validar desde la clase form por eso se dehabilita el boton -->
+								<button class="btn btn-secondary btn-block" [disabled]="!f.valid">Guardar</button>
 							</div>
 						</form>
 					</div>
