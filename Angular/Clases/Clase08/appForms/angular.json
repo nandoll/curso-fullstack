@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "appPelis": {
+    "appForms": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/appPelis",
+            "outputPath": "dist/appForms",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-			  "node_modules/bootstrap/dist/css/bootstrap.css",			  
+				"node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -56,24 +56,24 @@
                   "maximumError": "5mb"
                 }
               ]
-            } 
-          } 
+            }
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "appPelis:build"
+            "browserTarget": "appForms:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "appPelis:build:production"
+              "browserTarget": "appForms:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "appPelis:build"
+            "browserTarget": "appForms:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "appPelis-e2e": {
+    "appForms-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "appPelis:serve"
+            "devServerTarget": "appForms:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "appPelis:serve:production"
+              "devServerTarget": "appForms:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "appPelis"
+  "defaultProject": "appForms"
 }

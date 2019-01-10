@@ -1,0 +1,31 @@
+<div class="MyFormWrap">
+
+
+	<div class="container-full">
+			<div class="container black">
+					<div class="row justify-content-md-center">
+						<form #f="ngForm">
+							<!-- // Se toma como referencia el parent en este caso es el form 
+							// Luego se agrega la referencia de tipo ngForm 
+							// Esto hara que se "cojan" todos los elemenos dentro de el -->
+							<div class="form-group" >
+								<input type="text" placeholder="Nombre completo" name="name" ngModel required>
+								<!-- Ademas se debe de agregar ngModel para que pueda ser reconocido como hijo del form -->
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Email" name="email" ngModel required email>
+							</div>
+							<div class="form-group">
+								<input type="password" placeholder="Password" name="pass" ngModel>
+							</div>
+							<div class="form-group">
+								<button 
+								type="button" 
+								class="btn btn-primary btn-block"
+								(click)="grabar(f)">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+	</div>
+</div>
