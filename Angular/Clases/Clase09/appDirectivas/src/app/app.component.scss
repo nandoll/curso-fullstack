@@ -1,0 +1,18 @@
+/* Directivas */
+
+$ancho : 650px;
+$alto : 320px;
+$bradius : 40px;
+
+
+.box{
+	width : $ancho;
+	height: $alto;
+	border: 1px solid crimson;
+	border-radius: $bradius;
+	border: 1px dashed red;	
+
+}
+.boxOnHover{
+	border: 1px dashed blue;
+}

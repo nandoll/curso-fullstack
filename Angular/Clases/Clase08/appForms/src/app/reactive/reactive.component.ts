@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-reactive',
@@ -16,7 +16,8 @@ export class ReactiveComponent implements OnInit {
 		this.grupo = new FormGroup({
 			name: new FormControl(null, Validators.required),
 			email: new FormControl(null, [Validators.required, Validators.email, this.validarCorreosEmpresariales.bind(this)]),
-			pass: new FormControl(null, [Validators.required, Validators.minLength(4)])
+			pass: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+			confirmPass: new FormControl(null, [Validators.required, this.validadorConfirmarPass])
 			// tiene 2 parametros 
 			// el 1ero es obligatrio : el valor que va a tner el control		
 			// el 2do es un validador : El 2do puede ser un arreglo.
@@ -24,6 +25,12 @@ export class ReactiveComponent implements OnInit {
 			// en el caso del correo al tener mas validaciones puede ser un arreglo
 		})
 	}
+
+	// el BIND  se utiliza para poner en contexto las variables
+
+	// es por eso que se utilizo en los validades del email 
+	// y no en el validador de la confirmacion del password porque no tenia
+	//ninguna referencia externa
 	validarCorreosEmpresariales(control : FormControl) : { [p: string]: boolean } {
 		if(!control || !control.value) return null
 		const correo = control.value 
@@ -46,6 +53,32 @@ export class ReactiveComponent implements OnInit {
 			// si no paso la verificacion encontes se devuelve el valor true
 		}
 	}
+
+	validadorConfirmarPass(control : AbstractControl ) : {[p:string] : boolean} {
+		if( !control || !control.parent ) return null 
+		//Aun no hay nada para validad
+
+
+		const pass = control.parent.get("pass"),
+		confirm = control.parent.get("confirmPass")
+		// es importante usasr un AbstractControl para obtener el parent
+
+
+		if( !pass || !confirm ) return null 
+		// Si son nullos no deberia de haber ninguna verificacion aun
+		// A partir de este punto se puede validar
+
+		if(confirm.value=="") return null 
+		// Al estar vacio tampoco se vdeberia de comprar
+
+		if(confirm.value != pass.value ) {
+			// si son diferentes eniar un mensaje de error
+			return {contrasenaNoCoincide: true}
+		}
+
+		return null
+	  }
+
 	grabar() {
 		const datos = this.grupo.getRawValue()
 		console.log(datos)

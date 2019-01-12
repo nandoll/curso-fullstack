@@ -1,0 +1,20 @@
+<p> {{ date | date:"dd/MM/yy" }}</p>
+<p> {{ name | uppercase  }}</p>
+
+
+<div class="container">
+	<div class="row" *ngFor = "let book of books ">
+		<div class="col">
+			{{ book.author}}
+		</div>
+		<div class="col">
+			{{ book.title}}
+		</div>
+		<div class="col">
+			{{ book.sinposis | reducer: 120 : "ver mas"}}
+		</div>
+		<div class="col">
+			{{ book.year}}
+		</div>
+	</div>
+</div>

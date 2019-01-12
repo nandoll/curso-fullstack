@@ -1,0 +1,30 @@
+//basic.directive.ts
+
+@Directive(){
+	selector : "[basic]"
+}
+export Class BasicDirective{
+	
+	// para crear una directiva se necesita 
+	// un valor
+	// en el primer parametro deberia ser un selector
+	// si fuera un selector de atributo []
+
+	// PAra usar una directiva hay que declarla en un componente 
+
+
+	constructor( private el: ElementRef) {}
+
+	ngOnInit(){
+		//Ciclo de Vida del componente
+
+		// lo usual en otros componentes diferentes a las directivas es no modificar el html desde el ngOnInit
+		// pero para las directivas eso no aplica ya que en este punto ya se cargo el elemento
+
+		this.el.nativeElementt.style.backgroundColor = "red"
+	}
+}
+
+para usar un directiva con el generador se utiliza
+
+ng g d arrastre
