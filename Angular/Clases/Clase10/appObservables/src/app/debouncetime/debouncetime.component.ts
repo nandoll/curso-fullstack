@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-debouncetime',
@@ -19,7 +19,12 @@ export class DebouncetimeComponent implements OnInit {
   ngAfterViewInit(){
 	  fromEvent(this.el.nativeElement, "input")
 	  .pipe(
-		  debounceTime(2000)
+		  debounceTime(100),
+		  map((value :any )=> value.target.value),
+		  //espera que el usuario deje de teclear medio segundo para hacer la consulta
+		  // la primera vez lo deja pasar
+		  // porque no tiene con que comparar
+		  distinctUntilChanged()
 	  )
 	  .subscribe(
 		  data => console.log(data)

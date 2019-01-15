@@ -9,6 +9,7 @@ import { ObservadorComponent } from './observador/observador.component';
 import { IntervalComponent } from './interval/interval.component';
 import { FilterComponent } from './filter/filter.component';
 import { DebouncetimeComponent } from './debouncetime/debouncetime.component';
+import { OfComponent } from './of/of.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DebouncetimeComponent } from './debouncetime/debouncetime.component';
     ObservadorComponent,
     IntervalComponent,
     FilterComponent,
-    DebouncetimeComponent
+    DebouncetimeComponent,
+    OfComponent
   ],
   imports: [
     BrowserModule
