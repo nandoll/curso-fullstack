@@ -11,6 +11,7 @@ import { FilterComponent } from './filter/filter.component';
 import { DebouncetimeComponent } from './debouncetime/debouncetime.component';
 import { OfComponent } from './of/of.component';
 import { PluckComponent } from './pluck/pluck.component';
+import { SwitchMapComponent } from './switch-map/switch-map.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PluckComponent } from './pluck/pluck.component';
     FilterComponent,
     DebouncetimeComponent,
     OfComponent,
-    PluckComponent
+    PluckComponent,
+    SwitchMapComponent
   ],
   imports: [
     BrowserModule
