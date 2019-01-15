@@ -10,6 +10,7 @@ import { IntervalComponent } from './interval/interval.component';
 import { FilterComponent } from './filter/filter.component';
 import { DebouncetimeComponent } from './debouncetime/debouncetime.component';
 import { OfComponent } from './of/of.component';
+import { PluckComponent } from './pluck/pluck.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OfComponent } from './of/of.component';
     IntervalComponent,
     FilterComponent,
     DebouncetimeComponent,
-    OfComponent
+    OfComponent,
+    PluckComponent
   ],
   imports: [
     BrowserModule
