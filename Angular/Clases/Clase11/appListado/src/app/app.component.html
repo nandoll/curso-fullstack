@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 justify-content-center">
+
+      <div class="row">
+        <div class="col ">
+          <select [(ngModel)]="page" (change)="changePage()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <select [(ngModel)]="order" (change)="changeOrder()" >
+            <option value="nombre">nombre</option>
+            <option value="sexo">sexo</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <table class="col-12 table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Nombre</th>
+                <th>Sexo</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let resultado of resultados">
+              <td>{{resultado.nombre}}</td>
+              <td>{{resultado.sexo}}</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
