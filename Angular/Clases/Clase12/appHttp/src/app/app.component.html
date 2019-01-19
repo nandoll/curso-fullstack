@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="insertar()" [formGroup]="grupo">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Titulo" formControlName="titulo">
+      </div>
+    </form>
+    <div class="row">
+        <div class="form-group">
+            <button class="btn btn-warning" (click)="refresh()"> refrescar </button>
+          </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <table class="col-8 table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <td>ID</td>
+          <td>Título</td>
+        </tr>
+      </thead>
+      <tr *ngFor="let curso of cursos; let indice = index ">
+        <td>{{curso.idCurso}}</td>
+        <td>{{curso.titulo}}</td>
+        <td>
+          <div class="form-group">
+            <button class="btn btn-danger" (click)="eliminar(curso.idCurso)" > Eliminar </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
