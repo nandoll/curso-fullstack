@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICurso } from './cursos.interface';
 
@@ -8,12 +8,39 @@ import { ICurso } from './cursos.interface';
 })
 export class CursosService {
 
-  constructor(private http: HttpClient) { } 
+  constructor(private http: HttpClient) { }
 
-  
+
+
+  /* listar(): Observable<ICurso[]>{
+    const endpoint = "http://cursos.tibajodemanda.com/cursos"
+    const accesToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.he0ErCNloe4J7Id0Ry2SEDg09lKkZkfsRiGsdX_vgEg"
+
+    const cabecera = {
+      authorization : "bearer " + accesToken
+    }
+
+    const header : HttpHeaders = new HttpHeaders( cabecera )
+
+    return this.http.get<ICurso[]>(
+      endpoint,
+      {headers : header }
+      )
+  } */
 
   listar(): Observable<ICurso[]>{
-    return this.http.get<ICurso[]>("http://cursos.tibajodemanda.com/cursos")
+    const endpoint = "http://cursos.tibajodemanda.com/cursos"
+    const accesToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.he0ErCNloe4J7Id0Ry2SEDg09lKkZkfsRiGsdX_vgEg"
+
+    const cabecera = {
+      authorization : "bearer " + accesToken
+    }
+
+    const header : HttpHeaders = new HttpHeaders( cabecera )
+
+    return this.http.get<ICurso[]>(
+      endpoint
+      )
   }
 
   insertar(curso:ICurso):Observable<any>{
