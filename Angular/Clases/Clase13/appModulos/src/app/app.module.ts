@@ -18,7 +18,7 @@ import { CoresModule } from './cores/cores.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ReducerPipe
+    /* ReducerPipe */
   ],
   imports: [
     BrowserModule,
