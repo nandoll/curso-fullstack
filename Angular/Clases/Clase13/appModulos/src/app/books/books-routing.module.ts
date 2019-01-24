@@ -6,7 +6,7 @@ import { AntoEditBookComponent } from './anto-edit-book/anto-edit-book.component
 
 const routes: Routes = [
   {
-    path:"libros", children: [
+    path:"", children: [
       {path:"", component: AntoListBooksComponent},
       {path:"edicion", component: AntoEditBookComponent}
     ]

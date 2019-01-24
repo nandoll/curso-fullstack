@@ -1,0 +1,33 @@
+//Navegacion
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+*{
+  font-family: 'Open Sans';
+  color: white;
+}
+body{
+  background-color: rgba(0,0,0,0.75);
+}
+.nav{
+  ul{
+
+    border: 1px solid lightgreen;
+
+    li{
+      list-style: none;
+      display: inline-block;
+    }
+
+    a{
+      display: inline-block;
+      border: 1px solid lightsteelblue;
+      text-decoration: none;
+      margin: .5rem;
+      padding: .2em .3em
+    }
+  }
+  &_links{
+
+    border: 1px solid yellow
+  }
+}
