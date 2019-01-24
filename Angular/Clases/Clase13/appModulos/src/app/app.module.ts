@@ -43,7 +43,6 @@ const router: Route[] = [
 ]
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
