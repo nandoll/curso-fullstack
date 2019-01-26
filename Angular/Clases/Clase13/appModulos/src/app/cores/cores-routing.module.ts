@@ -5,7 +5,11 @@ import { AntoLoginComponent } from './anto-login/anto-login.component';
 const routes: Routes = [
   {
     path:"", component:AntoLoginComponent
-  }
+
+  },
+  /* {path: "login", redirectTo:""}
+  para la version 6 y 5 este es el parche
+  */
 ];
 
 @NgModule({

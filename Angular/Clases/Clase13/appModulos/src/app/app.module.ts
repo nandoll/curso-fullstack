@@ -32,3 +32,4 @@ import { CoresModule } from './cores/cores.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//ultimatecourses.com / angular /
