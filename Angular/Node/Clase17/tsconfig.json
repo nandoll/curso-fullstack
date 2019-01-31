@@ -1,0 +1,31 @@
+{
+     /* Para configurar type script  */
+     "compilerOptions": {
+         /* TS is not a languague */
+         /* Transpilar */
+         "target": "es6"
+         /* 
+            Le indico al target que se trasnpile en es6
+            al ser node controlado por mi puedo setear la variable
+            en es6 
+         */,
+         "module": "commonjs",         
+         /* En este punto indicamos quien va a hacer funcionar import como se va a utilizar desde la libreria ya sea common o require js */
+
+     },
+     "include": [
+         "**/*.ts"
+        /* Aca le indicamos que va a buscar para correr en busqueda de archivos ts */
+
+        /* con un solo asterisco es al elemento raiz 
+            si fueran ** se incluirian las carpetas
+        */
+     ],
+     "exclude": [
+         "node_modules"
+         /* Ademàs le indico que excluya la carpeta node_modules para evitar que busque dentgro de estos archivos*/
+     ]
+
+     
+
+}
