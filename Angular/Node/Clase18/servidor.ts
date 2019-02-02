@@ -28,10 +28,13 @@ const servidor = http.createServer(
         */
 
         //Opcion 1 : Esta opcion sería más adecuada si tuvieramos varios tipos de cabeceras, ya que es un JSON        
+       
+        /* 
+       Fin de los pdf y mimes
        response.writeHead(200, { "content-type" : "application/pdf"} )
 
        const lector = fs.createReadStream("./ux-for-developers.pdf")
-       lector.pipe(response)
+       lector.pipe(response) */
        
 
        //Opcion 2 : Esta seria una opción sería si solo hubiera una sola cabecera por ejemplo
@@ -51,6 +54,46 @@ const servidor = http.createServer(
 
         // Toda vez que la comunicacion termina se utiliza la funcion end()     
         /* response.end() */
+
+        const ruta = request.url
+        const metodo = request.method
+        const lector = fs.createReadStream("./portada.html", {encoding: "utf8"})
+        //almacena las rutas que el servidor esta recibiendo 
+
+        // a consultar si va a la ruta principal
+
+        if(ruta == "/" && metodo == "get"){
+            response.setHeader("content-type", "text/html")
+            response.statusCode = 200            
+            lector.pipe(response)
+            
+
+            /* 
+            Ejemplo : para enviar un texto en html dentro del end
+
+            response.end("<h1> soy un html </h1>")
+            */
+
+            /* Ejemplo 2 : enviar desde un html */
+
+        }
+        else if(ruta == "/redireccion"){
+            response.setHeader("location", "http://gmail.com")
+            response.statusCode = 302
+            response.end()
+
+        }
+
+        else{
+            response.setHeader("content-type", "text/plain")
+            response.statusCode = 404
+            response.end("La ruta no fue encontrada")
+        }
+
+        
+        
+
+        
         
     })
 
