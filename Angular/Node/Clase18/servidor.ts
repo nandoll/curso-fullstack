@@ -1,5 +1,6 @@
 import http = require("http")
-
+import fs = require("fs")
+/*  2 ) Ahora vamos a enviar un archivo PDF  */
 
 const servidor = http.createServer(
     (request: http.IncomingMessage, response: http.ServerResponse ) =>{
@@ -27,7 +28,10 @@ const servidor = http.createServer(
         */
 
         //Opcion 1 : Esta opcion sería más adecuada si tuvieramos varios tipos de cabeceras, ya que es un JSON        
-       response.writeHead(200, { "content-type" : "text/html"} )
+       response.writeHead(200, { "content-type" : "application/pdf"} )
+
+       const lector = fs.createReadStream("./ux-for-developers.pdf")
+       lector.pipe(response)
        
 
        //Opcion 2 : Esta seria una opción sería si solo hubiera una sola cabecera por ejemplo
@@ -37,16 +41,16 @@ const servidor = http.createServer(
        response.statusCode = 200 
        */
 
-       response.write("Esta es el primer mensaje dede el servidor<br>")
+       /* response.write("Esta es el primer mensaje dede el servidor<br>") */
     
        //Opcion 1
-       response.write("Y este es el segundo mensaje dede el servidor")
+       /* response.write("Y este es el segundo mensaje dede el servidor") */
        // Opcion 2 : Poner el end() como fin de la comunicacion y enviarle el ultimo mensaje 
        /* response.end("Y este es el segundo mensaje dede el servidor") */
        
 
         // Toda vez que la comunicacion termina se utiliza la funcion end()     
-        response.end()
+        /* response.end() */
         
     })
 
