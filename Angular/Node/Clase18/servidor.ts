@@ -62,7 +62,7 @@ const servidor = http.createServer(
 
         // a consultar si va a la ruta principal
 
-        if(ruta == "/" && metodo == "get"){
+        if(ruta == "/" && metodo == "GET"){
             response.setHeader("content-type", "text/html")
             response.statusCode = 200            
             lector.pipe(response)
@@ -77,6 +77,10 @@ const servidor = http.createServer(
             /* Ejemplo 2 : enviar desde un html */
 
         }
+        /* else if (ruta == "/listado"){
+            response.setHeader("")
+            todo: copiar de la casle del profe
+        } */
         else if(ruta == "/redireccion"){
             response.setHeader("location", "http://gmail.com")
             response.statusCode = 302
